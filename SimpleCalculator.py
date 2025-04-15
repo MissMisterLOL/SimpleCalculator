@@ -1,34 +1,55 @@
-x = ''
-y = ''
+while True:
+    # Initialize x
+    x = ''
+    while not (type(x) is float):
+        try:
+            # Enter x
+            x = input('Type the 1st number(x) (Type "stop" to terminate the program): ')
+            if x == "stop":
+                break
+            x = float(x)
+        except ValueError:
+            print('Try again\n')
+            continue
+    if x == "stop": break
+    
+    # Initialize y
+    y = ''
+    while not (type(y) is float):
+        try:
+            # Enter y
+            y = input('Type the 2nd number(y) (Type "stop" to terminate the program): ')
+            if y == "stop":
+                break
+            y = float(y)
+        except ValueError:
+            print('Try again\n')
+            continue
+    if y == "stop": break
 
-while x == str(x) or y == str(y):
-    try:
-        x = input('Type the 1st number(x): ')
-        y = input('Type the 2nd number(y): ')
+    # Initialize math operation
+    math_operations = ''
+    while math_operations != '+' and math_operations != '-' and math_operations != '*' and math_operations != '/':
+        # Enter math operation
+        math_operations = input(
+'''Type one of the the 4 math operations ("+"/"-"/"*"/"/")
++ (addition): x+y
+- (subtraction): x-y
+* (multification): x*y, 
+/ (division): x/y
+(Type "stop" to terminate the program): '''
+        )
 
-        x = float(x)
-        y = float(y)
+        # Calculation
+        if math_operations == "stop": break
+        elif math_operations == '+': print(x + y)
+        elif math_operations == '-': print(x - y)
+        elif math_operations == '*': print(x * y)
+        elif math_operations == '/': print(x / y)
+        else:
+            print("Try again\n")
+            continue
+        break
+    if math_operations == "stop": break
 
-        math_operations = ''
-
-        while math_operations != 'add' and math_operations != 'sub' and math_operations != 'mul' and math_operations != 'div':
-
-            try:
-                math_operations = input(
-                    'Type one of the the 4 math operations (add/sub/mul/div)\nadd(addition): x+y, sub(subtraction): x-y\nmul(multification): x*y, div(division): x/y\n(If this text appear again, please try again.): '
-                    '')
-
-                if math_operations == 'add':
-                    print(x + y)
-                if math_operations == 'sub':
-                    print(x - y)
-                if math_operations == 'mul':
-                    print(x * y)
-                if math_operations == 'div':
-                    print(x / y)
-            except:
-                continue
-        continue
-    except ValueError:
-        print('Try again')
-        continue
+    continue
